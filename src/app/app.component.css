@@ -1,0 +1,102 @@
+.animation {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.animation::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: mask 10s forwards;
+}
+@keyframes mask {
+  100% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.animation img {
+  width: 100%;
+  min-height: 500px;
+  animation: img 10s forwards, img-shrink 20s 10s forwards;
+  transform-origin: top;
+}
+
+@keyframes img {
+  100% {
+    transform: scale(1.6);
+  }
+}
+@keyframes img-shrink {
+  100% {
+    transform: scale(1);
+  }
+}
+.title {
+  text-align: center;
+}
+.box {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.login_form {
+  width: 300px;
+  border: 1px solid black;
+  padding: 20px 40px;
+  margin: 0 auto;
+  z-index: 1;
+  background-color: #ffffff;
+}
+.input_form {
+  width: 230px;
+  margin-bottom: 20px;
+  line-height: 25px;
+  margin-left: 30px;
+}
+.label {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.indicator {
+  width: 200px;
+  overflow: hidden;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px 20px;
+  display: block;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: gray;
+}
+.indicator:hover {
+  cursor: pointer;
+  opacity: calc(0.8);
+  transition: 400ms;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.gray {
+  background-color: gray;
+}
+
+.strength-indicator {
+  text-align: center;
+  margin-top: 10px;
+}

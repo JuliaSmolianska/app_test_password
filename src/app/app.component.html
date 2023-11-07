@@ -1,0 +1,66 @@
+<section class="animation">
+  <img
+    src="https://t4.ftcdn.net/jpg/05/85/86/59/240_F_585865931_FBvk6LfGE4i24ScztzmNJl6Zs9PZhkyg.jpg"
+    alt="background"
+  />
+</section>
+<div class="box">
+  <div class="login_form">
+    <div>
+      <h2 *ngIf="name" class="title">Welcome, {{ name }}!</h2>
+      <label class="label">Enter your name:</label> <br />
+      <input
+        [(ngModel)]="name"
+        placeholder="Enter your name"
+        class="input_form"
+      />
+    </div>
+
+    <div>
+      <label for="password" class="label">Enter your password: </label>
+      <br />
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        (input)="checkPasswordStrength()"
+        class="input_form"
+      />
+    </div>
+
+    <div class="strength-indicator">
+      <div
+        class="indicator"
+        [ngClass]="{
+          gray: isEmpty,
+          red: isShort || isEasy,
+          yellow: isModerate,
+          green: isStrong
+        }"
+      >
+        The password is easy!
+      </div>
+      <div
+        class="indicator"
+        [ngClass]="{
+          gray: isEmpty || isEasy,
+          red: isShort,
+          yellow: isModerate,
+          green: isStrong
+        }"
+      >
+        The password is medium!!
+      </div>
+      <div
+        class="indicator"
+        [ngClass]="{
+          red: isShort,
+          gray: isEmpty || isEasy || isModerate,
+          green: isStrong
+        }"
+      >
+        The password is strong!!!
+      </div>
+    </div>
+  </div>
+</div>
