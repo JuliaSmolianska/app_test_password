@@ -72,7 +72,6 @@
   display: block;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: gray;
 }
 .indicator:hover {
   cursor: pointer;

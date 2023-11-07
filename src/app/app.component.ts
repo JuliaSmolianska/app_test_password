@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class PasswordCheckerComponent {
   password: string = '';
   name: string = '';
-  isEmpty: boolean = false;
+  isEmpty: boolean = true;
   isEasy: boolean = false;
   isShort: boolean = false;
   isModerate: boolean = false;
@@ -23,27 +23,22 @@ export class PasswordCheckerComponent {
       this.password
     );
     this.isShort = passwordLength >= 1 && passwordLength < 8;
-    console.log('isShort: ' + this.isShort);
 
     this.isEmpty = passwordLength === 0;
-    console.log('isEmpty: ' + this.isEmpty);
 
     this.isEasy =
       passwordLength >= 8 &&
       ((hasLetters && !hasNumbers && !hasSpecialChars) ||
         (hasNumbers && !hasLetters && !hasSpecialChars) ||
         (hasSpecialChars && !hasNumbers && !hasLetters));
-    console.log('isEasy: ' + this.isEasy);
 
     this.isModerate =
       passwordLength >= 8 &&
       ((hasLetters && hasNumbers && !hasSpecialChars) ||
         (hasLetters && hasSpecialChars && !hasNumbers) ||
         (hasNumbers && hasSpecialChars && !hasLetters));
-    console.log('isModerate: ' + this.isModerate);
 
     this.isStrong =
       passwordLength >= 8 && hasLetters && hasNumbers && hasSpecialChars;
-    console.log('isStrong: ' + this.isStrong);
   }
 }
